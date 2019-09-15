@@ -1,12 +1,12 @@
 <html>
 <head>
-<!-- Load Stripe.js on your website. -->
+  <!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>
 
 <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
 <button
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-sku_FocSznYYfaofN3"
+  id="checkout-button-sku_FocllN1lJy2uJw"
   role="link"
 >
   Checkout
@@ -15,14 +15,14 @@
 <div id="error-message"></div>
 
 <script>
-  var stripe = Stripe('pk_live_nwE0at4dTyjwKPidPS8oJ1sr00kJ9HEP6X');
+  var stripe = Stripe('pk_test_rXyNWYKQ87AAZE0EJPDE49Hi00dUn64e5p');
 
-  var checkoutButton = document.getElementById('checkout-button-sku_FocSznYYfaofN3');
+  var checkoutButton = document.getElementById('checkout-button-sku_FocllN1lJy2uJw');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_FocSznYYfaofN3', quantity: 1}],
+      items: [{sku: 'sku_FocllN1lJy2uJw', quantity: 1}],
 
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
