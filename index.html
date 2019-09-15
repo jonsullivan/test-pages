@@ -23,7 +23,9 @@
     // them to Checkout.
     stripe.redirectToCheckout({
       items: [{sku: 'sku_FocllN1lJy2uJw', quantity: 1}],
-
+      client_reference_id: 2342,
+      email: 'punkrider@gmail.com',
+      
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.
