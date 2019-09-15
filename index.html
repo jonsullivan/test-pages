@@ -2,17 +2,22 @@
 <head>
   <!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>
-
+  </head>
+<body>
+  
+<div id="error-message"></div>
+  
+  <div style="border:1px solid #ababab;background:#efefef;color:#000;font-weight:bold;width:100%;display:inline-block;height:150px;">
+    <h1>Show #1</h1>
 <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
 <button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  style="float:right;background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
   id="checkout-button-sku_FocllN1lJy2uJw"
   role="link"
 >
-  Checkout
+  Buy Now
 </button>
-
-<div id="error-message"></div>
+  </div>
 
 <script>
   var stripe = Stripe('pk_test_rXyNWYKQ87AAZE0EJPDE49Hi00dUn64e5p');
@@ -43,7 +48,5 @@
       }
     });
   });
-</script>
-</head>
-<body>&nbsp;</body>
+</script></body>
 </html>
