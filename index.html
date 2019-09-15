@@ -34,8 +34,8 @@
 <script>
   var stripe = Stripe('pk_test_rXyNWYKQ87AAZE0EJPDE49Hi00dUn64e5p');
 
-  var checkoutButton = document.getElementById('checkout-button-sku_FocllN1lJy2uJw');
-  checkoutButton.addEventListener('click', function () {
+  var event1 = document.getElementById('checkout-button-sku_FocllN1lJy2uJw');
+  event1.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
@@ -43,6 +43,31 @@
       clientReferenceId: '2342',
       customerEmail: 'punkrider@gmail.com',
       
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfillment
+      successUrl: window.location.protocol + '//ticketmingle.com/success',
+      cancelUrl: window.location.protocol + '//ticketmingle.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+  var event2 = document.getElementById('checkout-button-sku_FoefswpWU4upSx');
+  event2.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_FoefswpWU4upSx', quantity: 1}],
+
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.
